@@ -65,7 +65,7 @@ body {
   height: 60px;
   text-align: right;
   padding: 1.3rem;
-  color: hsl(184, 14%, 56%);
+  color: hsl(183, 100%, 15%);
   font-weight: bold;
   font-size: 24px;
 }
@@ -100,6 +100,8 @@ body {
   font-size: 20px;
   font-weight: 900;
   text-align: center;
+  border: none;
+  border-radius: 0.3rem;
 }
 .percent::placeholder {
   color: hsl(0, 0%, 100%);
@@ -108,11 +110,16 @@ body {
 
 .clicked {
   color: hsl(183, 100%, 15%);
-  background-color: hsl(184, 14%, 56%);
+  background-color: hsl(172, 67%, 45%);
 }
-.clicked::placeholder {
+
+#manual {
+  background-color: whitesmoke;
+}
+#manual::placeholder {
   color: hsl(183, 100%, 15%);
 }
+
 .people {
   font-family: "Space Mono", monospace;
   display: flex;
@@ -123,7 +130,7 @@ body {
   height: 60px;
   text-align: right;
   padding: 1.2rem;
-  color: hsl(184, 14%, 56%);
+  color: hsl(183, 100%, 15%);
   font-weight: bold;
   font-size: 24px;
 }
@@ -149,6 +156,11 @@ body {
 
 .results {
   padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: "Space Mono", monospace;
+  font-weight: 900;
 }
 p {
   color: white;
@@ -163,4 +175,28 @@ span {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+}
+
+.reset {
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 900;
+  width: 80%;
+  height: 3.5rem;
+  position: absolute;
+  bottom: 10%;
+  border-radius: 0.5rem;
+  border: none;
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(172, 67%, 45%);
+}
+
+#person-amount,
+#tip-amount {
+  color: hsl(172, 67%, 45%);
+  font-size: 3rem;
+}
+
+.pers {
+  color: hsl(185, 41%, 84%);
 }
