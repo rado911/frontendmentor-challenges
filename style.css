@@ -25,8 +25,8 @@ body {
   /* border: 2px solid black; */
   background-color: hsl(0, 0%, 100%);
   border-radius: 20px;
-  height: 50vh;
-  width: 40vw;
+  height: 50%;
+  width: 40%;
   display: flex;
   align-items: center;
 }
@@ -36,26 +36,34 @@ body {
   /* border: 2px solid black; */
   border-radius: 20px;
   height: 80%;
-  width: 40vw;
+  width: 100%;
   margin-left: 30px;
-  padding-right: 70px;
+  padding-right: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
-.bill-ammount {
-  position: relative;
 }
 .results {
   border: 2px solid black;
   border-radius: 20px;
   height: 80%;
-  width: 40vw;
+  width: 90%;
   margin-left: 5px;
   margin-right: 30px;
   background-color: hsl(183, 100%, 15%);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: "Space Mono", monospace;
+  font-weight: 900;
 }
-.dollar {
+.bill-ammount {
+  position: relative;
+}
+
+.dollar,
+.people {
   font-family: "Space Mono", monospace;
   display: flex;
   border: none;
@@ -68,11 +76,21 @@ body {
   color: hsl(183, 100%, 15%);
   font-weight: bold;
   font-size: 24px;
+  margin-top: 0.5rem;
 }
+
 .dollar::placeholder {
   color: hsl(184, 14%, 56%);
   font-weight: bold;
   font-size: 24px;
+}
+.dollar:focus,
+.people:focus {
+  outline-color: hsl(172, 67%, 45%);
+}
+#manual:focus {
+  color: hsl(183, 100%, 15%);
+  outline-color: hsl(172, 67%, 45%);
 }
 .bill-ammount::before {
   position: absolute;
@@ -91,13 +109,14 @@ body {
   justify-content: space-between;
 }
 
-.percent {
+.percent,
+#manual {
   width: 31%;
-  padding: 10px 5px;
+  padding: 15px 5px;
   margin-bottom: 20px;
   background-color: hsl(183, 100%, 15%);
   color: hsl(0, 0%, 100%);
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 900;
   text-align: center;
   border: none;
@@ -120,20 +139,6 @@ body {
   color: hsl(183, 100%, 15%);
 }
 
-.people {
-  font-family: "Space Mono", monospace;
-  display: flex;
-  border: none;
-  border-radius: 10px;
-  background-color: whitesmoke;
-  width: 100%;
-  height: 60px;
-  text-align: right;
-  padding: 1.2rem;
-  color: hsl(183, 100%, 15%);
-  font-weight: bold;
-  font-size: 24px;
-}
 .people-input {
   position: relative;
 }
@@ -154,20 +159,12 @@ body {
   font-size: 24px;
 }
 
-.results {
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  font-family: "Space Mono", monospace;
-  font-weight: 900;
-}
 p {
   color: white;
 }
 
-span {
-  color: black;
+.results span {
+  color: hsl(186, 14%, 43%);
 }
 
 .final-amount {
@@ -197,6 +194,27 @@ span {
   font-size: 3rem;
 }
 
-.pers {
-  color: hsl(185, 41%, 84%);
+.texts {
+  color: hsl(186, 14%, 43%);
+  font-size: 1.2rem;
+}
+
+.amount-people {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.warning {
+  opacity: 0;
+  font-size: 1.2rem;
+  color: red;
+}
+
+.error {
+  opacity: 1;
+}
+
+.people:required:invalid {
+  outline-color: red;
 }

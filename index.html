@@ -24,29 +24,30 @@
     </svg>
     <div class="calculator">
       <div class="entries">
-        <label>Bill</label>
+        
         <div class="bill-ammount">
-          
+          <label class="texts">Bill</label>
           <input type="text" class="dollar" placeholder="0" />
         </div>
-        <label >Select Tip %</label>
+        <label class="texts">Select Tip %</label>
         <div class="buttons">
             <button class="percent" value="0.05">5%</button>
             <button class="percent" value="0.10">10%</button>
             <button class="percent" value="0.15">15%</button>
             <button class="percent" value="0.25">25%</button>
             <button class="percent" value="0.50">50%</button>
-            <input class="percent" id='manual' placeholder="Custom"></input>
+            <input  class="percent" id='manual' placeholder="Custom"></input>
         </div>
-        <label >Number of people</label>
+        
+        
         <div class="people-input">
-            
-            <input type="tel" placeholder="0" class='people'>
+          <div class="amount-people"><label class="texts"  >Number of people</label><span class="warning">Can't be zero</span></div>
+            <input type="tel" placeholder="0" class='people'pattern="[1-9]{1}[0-9]{0,}"required>
         </div>
       </div>
       <div class="results">
-        <div class="final-amount"><p>Tip Amount<br><span class="pers">/Person</span></p><span id="tip-amount">$0</span></div>
-       <div class="final-amount"><p>Total<br><span class="pers">/Person</span></p><span id="person-amount">$0</span></div>
+        <div class="final-amount"><p>Tip Amount<br><span class="pers">/ person</span></p><span id="tip-amount">$0.00</span></div>
+       <div class="final-amount"><p>Total<br><span class="pers">/ person</span></p><span id="person-amount">$0.00</span></div>
        <button class="reset">RESET</button>
       </div>
     </div>
