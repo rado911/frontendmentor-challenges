@@ -19,8 +19,12 @@ buttons.forEach((button) => {
     //Switching button color
     button.classList.toggle("clicked");
     //Saving bill, % a amount of people
+    valuesCollect();
+  });
+
+  function valuesCollect() {
     billAmount = amount.value;
-    percents = Number(button.value);
+    percents = Number(button.value) / 100;
     persons = Number(people.value);
     console.log(billAmount, percents);
     //CHECKING FOR AMOUNT OF PEOPLE IS NOT 0
@@ -30,11 +34,9 @@ buttons.forEach((button) => {
       warning.classList.remove("error"),
         displayEnd(billAmount, percents, persons);
     }
-  });
-
-  console.log(percents);
-  function displayEnd(bill, perc, pers = 0) {
-    const amount = bill * perc;
+  }
+  function displayEnd(bill, perc, pers = 1) {
+    const amount = (bill * perc) / pers;
     const person = amount + bill / pers;
     console.log(person);
     document.getElementById("tip-amount").innerHTML = `$${amount.toFixed(2)}`;

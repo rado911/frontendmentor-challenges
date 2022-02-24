@@ -99,7 +99,7 @@ body {
   width: 24px;
   height: 24px;
   left: 5%;
-  top: 50%;
+  bottom: 15%;
   background-repeat: no-repeat;
 }
 
@@ -150,7 +150,7 @@ body {
   width: 24px;
   position: absolute;
   left: 5%;
-  bottom: 10%;
+  bottom: 15%;
 }
 
 .people::placeholder {
