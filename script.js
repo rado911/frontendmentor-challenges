@@ -1,69 +1,62 @@
-const buttons = document.querySelectorAll(".percent");
-const manual = document.getElementById("manual");
-const amount = document.querySelector(".dollar");
-const people = document.querySelector(".people");
-const warning = document.querySelector(".warning");
-const tip = document.getElementById("tip-amount");
-const perpers = document.getElementById("person-amount");
-const reset = document.querySelector(".reset");
+//SAVING ELEMENTS TO VARIABLES
+//INPUTS
+const billIn = document.querySelector(".dollar");
+const customIn = document.getElementById("manual");
+const personIn = document.querySelector(".people");
+//BUTTONS
+const percentBttnS = document.querySelectorAll(".percent");
+const resetBttn = document.querySelector(".reset");
+//OUTPUTS
+const zeroPeople = document.querySelector(".warning");
+const tipFinal = document.getElementById("tip-amount");
+const personFinal = document.getElementById("person-amount");
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
-let billAmount;
-let percents;
-let persons;
-let buttonValue;
-
-console.log(buttons);
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    buttons.forEach((btn) => {
-      btn.classList.contains("clicked") ? btn.classList.remove("clicked") : "";
-    });
-    buttonValue = button.value;
-    //Switching button color
-    button.classList.toggle("clicked");
-    //Saving bill, % a amount of people
-    //
-    console.log(typeof amount.value);
-    if (amount.value !== "" && people.value !== "") {
-      reset.removeAttribute("disabled");
-      valuesCollect();
-    } else {
-      return;
+let billAmount,
+  percentAmount,
+  personAmount = "";
+//EVENT LISTENERS FOR BUTTON AND INPUT ELEMENTS
+percentBttnS.forEach((bttn) => {
+  bttn.addEventListener("click", () => {
+    percentBttnS.forEach((bttn) => bttn.classList.remove("clicked"));
+    bttn.classList.toggle("clicked");
+    collectValues(bttn.value);
+    if (billAmount !== 0 && personAmount !== 0) {
+      resetBttn.removeAttribute("disabled");
+      displayTotal(billAmount, percentAmount, personAmount);
     }
   });
 });
-
-//ADDING EVENT LISTENER TO CUSTOM TIP INPUT
-manual.addEventListener("input", () => {
-  buttonValue = manual.value;
-  valuesCollect();
-});
-function valuesCollect() {
-  billAmount = amount.value;
-  percents = Number(buttonValue) / 100;
-  persons = Number(people.value);
-  console.log(billAmount, percents);
-
-  //CHECKING FOR AMOUNT OF PEOPLE IS NOT 0
-  if (people.value === "" || people.value === "0") {
-    warning.classList.add("error");
-  } else {
-    warning.classList.remove("error"),
-      displayEnd(billAmount, percents, persons);
+customIn.addEventListener("input", () => {
+  const customInput = customIn.value;
+  collectValues(customInput);
+  if (billAmount !== 0 && personAmount !== 0) {
+    resetBttn.removeAttribute("disabled");
+    displayTotal(billAmount, percentAmount, personAmount);
   }
-}
-function displayEnd(bill, perc, pers = 1) {
-  const amount = (bill * perc) / pers;
-  const person = amount + bill / pers;
-  console.log(person);
-  document.getElementById("tip-amount").innerHTML = `$${amount.toFixed(2)}`;
-  document.getElementById("person-amount").innerHTML = `$${person.toFixed(2)}`;
-}
-//RESETING APP
-reset.addEventListener("click", () => {
-  amount.value = people.value = manual.value = "";
-  tip.textContent = perpers.textContent = "$0.00";
-  buttonValue = 0;
-  reset.setAttribute("disabled", true);
-  console.log(typeof buttonValue + buttonValue);
 });
+resetBttn.addEventListener("click", () => {
+  billAmount = percentAmount = personAmount = 0;
+  billIn.value = customIn.value = personIn.value = "";
+  tipFinal.textContent = personFinal.textContent = "$0.00";
+  resetBttn.setAttribute("disabled", true);
+});
+//FUNCTIONS
+function collectValues(bttn) {
+  billAmount = Number(billIn.value);
+  percentAmount = Number(bttn) / 100;
+  personAmount = Number(personIn.value);
+  console.log(
+    `The bill is ${billAmount}, will be splitted between ${personAmount} ${
+      personAmount === 1 ? "person" : "persons"
+    } and the tip is ${percentAmount}%.`
+  );
+}
+
+function displayTotal(bill, percent, people) {
+  const tip = Number((bill * percent) / people);
+  tipFinal.textContent = `$${tip.toFixed(2)}`;
+  const finalBill = bill / people + tip;
+  personFinal.textContent = `$${finalBill.toFixed(2)}`;
+  console.log(typeof tip);
+}

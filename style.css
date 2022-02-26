@@ -93,11 +93,11 @@ body {
 }
 
 /*PLACING ICONS IN INPUT FIELDS*/
-.bill-ammount,
+.bill-amount,
 .people-input {
   position: relative;
 }
-.bill-ammount::before {
+.bill-amount::before {
   position: absolute;
   content: "";
   background-image: url(./images/icon-dollar.svg);
@@ -115,7 +115,7 @@ body {
   background-repeat: no-repeat;
   background-size: 1rem;
   left: 1.2rem;
-  top: 3.5rem;
+  top: 2.9rem;
   height: 30%;
   width: 10%;
 }
@@ -146,7 +146,7 @@ body {
   background-color: var(--light-green);
 }
 
-.bill-ammount,
+.bill-amount,
 .buttons,
 .people-input {
   margin-bottom: 1.5rem;
@@ -178,7 +178,7 @@ body {
 }
 .warning {
   opacity: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: red;
 }
 
@@ -188,4 +188,9 @@ body {
 
 .people:required:invalid {
   outline-color: red;
+}
+
+.amount-people {
+  display: flex;
+  justify-content: space-between;
 }
