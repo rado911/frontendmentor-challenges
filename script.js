@@ -24,6 +24,10 @@ percentBttnS.forEach((bttn) => {
     if (billAmount !== 0 && personAmount !== 0) {
       resetBttn.removeAttribute("disabled");
       displayTotal(billAmount, percentAmount, personAmount);
+    } else if (personAmount === 0) {
+      zeroPeople.classList.add("error");
+    } else {
+      zeroPeople.classList.remove("error");
     }
   });
 });
@@ -39,6 +43,7 @@ resetBttn.addEventListener("click", () => {
   billAmount = percentAmount = personAmount = 0;
   billIn.value = customIn.value = personIn.value = "";
   tipFinal.textContent = personFinal.textContent = "$0.00";
+  zeroPeople.classList.remove("error");
   resetBttn.setAttribute("disabled", true);
 });
 //FUNCTIONS
