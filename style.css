@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --darkest-green: hsl(183, 100%, 15%);
+  --light-green: hsl(172, 67%, 45%);
+  --dark-gray: hsl(186, 14%, 43%);
+  --ligh-gray: hsl(184, 14%, 56%);
+  --background-blue: hsl(185, 41%, 84%);
+  --white: hsl(0, 0%, 100%);
+  --shady-white: hsl(189, 41%, 97%);
+}
+/*STYLING COMMON ELEMENTS, ADDING FONT SIZE, COLORS ETC ...*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body,
+.percent,
+.reset,
+.dollar,
+.people,
+#manual {
+  font-family: "Space Mono", monospace;
+  font-size: 24px;
+}
+.dollar::placeholder,
+.people::placeholder,
+#manual {
+  text-align: end;
+  background-color: var(--shady-white);
+}
+
+.texts,
+.warning {
+  font-size: 0.9rem;
+}
+
+#tip-amount,
+#person-amount {
+  font-size: 2.5rem;
+  color: var(--light-green);
+}
+/*LAYOUT STYLING*/
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-blue);
+}
+.logo {
+  align-self: center;
+  margin: 3rem auto;
+}
+.calculator {
+  background-color: var(--white);
+  padding: 1rem 1rem;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  max-width: 100vw;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.percent {
+  width: 45%;
+  padding: 0.5rem;
+  color: var(--white);
+  background-color: var(--darkest-green);
+}
+/*HERE COMES THE CHANGE OF FONT*/
+.dollar,
+.people {
+  min-width: 100%;
+  max-width: 100%;
+  color: var(--darkest-green);
+  font-size: 1.8rem;
+  background-color: var(--shady-white);
+  padding: 0.5rem 1rem;
+  text-align: end;
+}
+
+.dollar,
+.people,
+.percent {
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 700;
+}
+
+/*PLACING ICONS IN INPUT FIELDS*/
+.bill-amount,
+.people-input {
+  position: relative;
+}
+.bill-amount::before {
+  position: absolute;
+  content: "";
+  background-image: url(./images/icon-dollar.svg);
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  left: 1.2rem;
+  top: 3.3rem;
+  height: 30%;
+  width: 10%;
+}
+.people-input::before {
+  position: absolute;
+  content: "";
+  background-image: url(./images/icon-person.svg);
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  left: 1.2rem;
+  top: 2.8rem;
+  height: 30%;
+  width: 10%;
+}
+.texts {
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--dark-gray);
+}
+.final-amount {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+.reset {
+  background-color: var(--light-green);
+  color: var(--darkest-green);
+  font-weight: 900;
+}
+
+.reset:disabled {
+  background-color: var(--dark-gray);
+  opacity: 0.5;
+}
+/*CLICKED CLASS FOR BUTTONS*/
+.clicked {
+  color: hsl(183, 100%, 15%);
+  background-color: var(--light-green);
+}
+
+.bill-amount,
+.buttons,
+.people-input {
+  margin-bottom: 1.5rem;
+}
+.entries,
+.results {
+  /* min-width: 100%; */
+  border-radius: 1rem;
+  padding: 1em 1rem;
+}
+
+.results {
+  background-color: var(--darkest-green);
+  padding-top: 2rem;
+}
+.final-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.reset {
+  margin-top: 3rem;
+  min-width: 100%;
+  padding: 0.5rem 0;
+  border-radius: 00.5rem;
+  border: none;
+}
+.warning {
+  opacity: 0;
+  font-size: 1rem;
+  color: red;
+}
+
+.error {
+  opacity: 1;
+}
+
+.people:required:invalid {
+  outline-color: red;
+}
+
+.amount-people {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dollar:focus,
+.people:focus {
+  outline-color: var(--light-green);
+}
+#manual:focus {
+  color: var(--darkest-green);
+  outline-color: var(--light-green);
+}
+
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+  }
+  .calculator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .entries,
+  .results {
+    min-width: 50%;
+  }
+
+  .percent {
+    width: 30%;
+  }
+  .reset {
+    margin-top: 10rem;
+  }
+
+  .final-amount {
+    font-size: 1.5rem;
+  }
+
+  #tip-amount,
+  #person-amount {
+    font-size: 3.5rem;
+  }
+}
