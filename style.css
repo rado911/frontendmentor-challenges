@@ -57,6 +57,7 @@ body {
   padding: 1rem 1rem;
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
+  max-width: 100vw;
 }
 
 .buttons {
@@ -73,6 +74,7 @@ body {
   color: var(--white);
   background-color: var(--darkest-green);
 }
+/*HERE COMES THE CHANGE OF FONT*/
 .dollar,
 .people {
   min-width: 100%;
