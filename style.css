@@ -25,16 +25,18 @@ body,
   font-size: 24px;
 }
 
-body {
-  height: 100vh;
-}
 .dollar::placeholder,
 .people::placeholder,
 #manual {
   text-align: end;
   background-color: var(--shady-white);
 }
-
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+}
 .texts,
 .warning {
   font-size: 0.9rem;
@@ -219,13 +221,15 @@ body {
   }
   .calculator {
     display: flex;
+    width: 50vw;
     justify-content: space-between;
     align-items: center;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
   }
   .entries,
   .results {
     min-width: 50%;
+    margin: 1rem auto;
   }
 
   .percent {
@@ -242,5 +246,8 @@ body {
   #tip-amount,
   #person-amount {
     font-size: 3.5rem;
+  }
+  header {
+    height: 30vh;
   }
 }
