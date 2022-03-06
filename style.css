@@ -77,7 +77,7 @@ body {
 /*HERE COMES THE CHANGE OF FONT*/
 .dollar,
 .people {
-  min-width: 100%;
+  max-width: 90%;
   color: var(--darkest-green);
   font-size: 1.8rem;
   background-color: var(--shady-white);
